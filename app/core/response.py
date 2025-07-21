@@ -2,12 +2,11 @@ from fastapi.responses import JSONResponse
 from fastapi import Request
 import logging
 
-logger = logging.getLogger("menu-ai")
+logger = logging.getLogger("instaserve-ai")
 
 class ResponseBuilder(object):
     @staticmethod
     def success(data=None, message=None):
-        logger.debug('Building success response')
         return JSONResponse({
             'success': True,
             'data': data,
@@ -16,7 +15,6 @@ class ResponseBuilder(object):
 
     @staticmethod
     def error(error=None, message=None, status_code=400):
-        logger.debug('Building error response')
         return JSONResponse({
             'success': False,
             'error': error,

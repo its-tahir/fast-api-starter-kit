@@ -1,20 +1,17 @@
 import logging
 from fastapi import APIRouter
-from app.core.response import ResponseBuilder
+from app.services.hello_service import HelloService
+from app.utils.decorators import api_response
 
 router = APIRouter()
-logger = logging.getLogger("menu-ai")
+logger = logging.getLogger("instaserve-ai")
 
 @router.get('/hello', tags=['Hello'])
+@api_response
 def hello_world():
-    logger.debug('Hello endpoint called')
-    data = {'message': 'Hello, World!'}
-    return ResponseBuilder.success(data=data)
+    return HelloService.get_hello_message()
 
-@router.get('/hello-error', tags=['Hello'])
+@router.get('/hello-error', tags=['Hello-Error'])
+@api_response
 def hello_exception():
-    logger.debug('Hello exception endpoint called')
-    try:
-        raise ValueError('This is a raised exception!')
-    except Exception as exc:
-        return ResponseBuilder.error(error=str(exc), message='Caught an exception in endpoint', status_code=500) 
+    return HelloService.raise_hello_exception() 

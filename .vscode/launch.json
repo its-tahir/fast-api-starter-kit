@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: FastAPI (uvicorn)",
+            "name": "Python: FastAPI",
             "type": "python",
             "request": "launch",
             "module": "uvicorn",
@@ -13,7 +13,8 @@
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
             },
-            "jinja": true
+            "jinja": true,
+            "python": "${workspaceFolder}/venv/Scripts/python.exe"
         }
     ]
 } 
