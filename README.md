@@ -1,4 +1,4 @@
-# Instaserve-AI FastAPI Starter Kit
+# FastAPI Starter Kit
 
 ## Overview
 A scalable, service-based FastAPI starter kit with clear separation of concerns, minimal and meaningful logging, and best practices for maintainability and growth.
